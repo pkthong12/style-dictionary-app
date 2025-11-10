@@ -1,0 +1,59 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --border-none: 0;
+  --border-sm: 4;
+  --border-md: 4;
+  --border-lg: 4;
+  --border-full: 4;
+  --border-thin: 4;
+  --border-medium: 4;
+  --border-thick: 4;
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
+  --color-base-gray-100: #f7fafc;
+  --color-base-gray-200: #edf2f7;
+  --color-base-gray-300: #e2e8f0;
+  --color-base-gray-400: #cbd5e0;
+  --color-base-gray-500: #a0aec0;
+  --color-base-gray-600: #718096;
+  --color-base-gray-700: #4a5568;
+  --color-base-gray-800: #2d3748;
+  --color-base-gray-900: #1a202c;
+  --color-brand-primary: #3b82f6;
+  --color-brand-secondary: #8b5cf6;
+  --color-brand-accent: #ec4899;
+  --color-semantic-success: #10b981;
+  --color-semantic-warning: #f59e0b;
+  --color-semantic-error: #ef4444;
+  --color-semantic-info: #3b82f6;
+  --color-text-primary: #1a202c;
+  --color-text-secondary: #718096;
+  --color-text-disabled: #cbd5e0;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f7fafc;
+  --font-family-heading: 'Poppins', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --padding-sm: 8px;
+  --padding-xs: 4px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+}

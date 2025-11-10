@@ -1,0 +1,85 @@
+{
+    "color": {
+        "base": {
+            "white": {
+                "value": "#ffffff"
+            },
+            "black": {
+                "value": "#000000"
+            },
+            "gray": {
+                "100": {
+                    "value": "#f7fafc"
+                },
+                "200": {
+                    "value": "#edf2f7"
+                },
+                "300": {
+                    "value": "#e2e8f0"
+                },
+                "400": {
+                    "value": "#cbd5e0"
+                },
+                "500": {
+                    "value": "#a0aec0"
+                },
+                "600": {
+                    "value": "#718096"
+                },
+                "700": {
+                    "value": "#4a5568"
+                },
+                "800": {
+                    "value": "#2d3748"
+                },
+                "900": {
+                    "value": "#1a202c"
+                }
+            }
+        },
+        "brand": {
+            "primary": {
+                "value": "#3b82f6"
+            },
+            "secondary": {
+                "value": "#8b5cf6"
+            },
+            "accent": {
+                "value": "#ec4899"
+            }
+        },
+        "semantic": {
+            "success": {
+                "value": "#10b981"
+            },
+            "warning": {
+                "value": "#f59e0b"
+            },
+            "error": {
+                "value": "#ef4444"
+            },
+            "info": {
+                "value": "#3b82f6"
+            }
+        },
+        "text": {
+            "primary": {
+                "value": "{color.base.gray.900}"
+            },
+            "secondary": {
+                "value": "{color.base.gray.600}"
+            },
+            "disabled": {
+                "value": "{color.base.gray.400}"
+            }
+        },
+        "background": {
+            "primary": {
+                "value": "{color.base.white}"
+            },
+            "secondary": {
+                "value": "{color.base.gray.100}"
+            }
+        }
+    }
+}

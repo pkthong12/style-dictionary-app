@@ -1,0 +1,28 @@
+{
+    "border": {
+        "none": {
+            "value": 0
+        },
+        "sm": {
+            "value": 4
+        },
+        "md": {
+            "value": 4
+        },
+        "lg": {
+            "value": 4
+        },
+        "full": {
+            "value": 4
+        },
+        "thin": {
+            "value": 4
+        },
+        "medium": {
+            "value": 4
+        },
+        "thick": {
+            "value": 4
+        }
+    }
+}

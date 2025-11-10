@@ -1,0 +1,14 @@
+{
+    "padding": {
+        "sm": {
+            "type": "spacing",
+            "value": "{spacing.sm}",
+            "description": ""
+        },
+        "xs": {
+            "type": "spacing",
+            "value": "{spacing.xs}",
+            "description": ""
+        }
+    }
+}
