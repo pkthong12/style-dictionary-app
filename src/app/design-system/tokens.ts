@@ -23,15 +23,15 @@ export interface DesignTokens {
     base: {
       black: string;
       gray: {
-        100: string;
-        200: string;
-        300: string;
-        400: string;
-        500: string;
-        600: string;
-        700: string;
-        800: string;
-        900: string;
+        '10': string;
+        '20': string;
+        '30': string;
+        '40': string;
+        '50': string;
+        '60': string;
+        '70': string;
+        '80': string;
+        '90': string;
       };
       white: string;
     };
@@ -57,9 +57,9 @@ export interface DesignTokens {
       heading: string;
     };
     size: {
-      2xl: string;
-      3xl: string;
-      4xl: string;
+      '2xl': string;
+      '3xl': string;
+      '4xl': string;
       base: string;
       lg: string;
       sm: string;
@@ -90,102 +90,84 @@ export interface DesignTokens {
 
 export const tokens: DesignTokens = {
   border: {
-    none: '0',
-    sm: '4',
-    md: '4',
-    lg: '4',
-    full: '4',
-    thin: '4',
-    medium: '4',
-    thick: '4',
+    none: `0`,
+    sm: `4`,
+    md: `4`,
+    lg: `4`,
+    full: `4`,
+    thin: `4`,
+    medium: `4`,
+    thick: `4`,
   },
   color: {
     base: {
-      white: '#ffffff',
-      black: '#000000',
+      white: `#ffffff`,
+      black: `#000000`,
       gray: {
-        '100': '#f7fafc',
-        '200': '#edf2f7',
-        '300': '#e2e8f0',
-        '400': '#cbd5e0',
-        '500': '#a0aec0',
-        '600': '#718096',
-        '700': '#4a5568',
-        '800': '#2d3748',
-        '900': '#1a202c',
+        '10': `#f7fafc`,
+        '20': `#edf2f7`,
+        '30': `#e2e8f0`,
+        '40': `#cbd5e0`,
+        '50': `#a0aec0`,
+        '60': `#718096`,
+        '70': `#4a5568`,
+        '80': `#2d3748`,
+        '90': `#1a202c`,
       },
     },
     brand: {
-      primary: '#3b82f6',
-      secondary: '#8b5cf6',
-      accent: '#ec4899',
+      primary: `#3b82f6`,
+      secondary: `#8b5cf6`,
+      accent: `#ec4899`,
     },
     semantic: {
-      success: '#10b981',
-      warning: '#f59e0b',
-      error: '#ef4444',
-      info: '#3b82f6',
+      success: `#10b981`,
+      warning: `#f59e0b`,
+      error: `#ef4444`,
+      info: `#3b82f6`,
     },
     text: {
-      primary: '#1a202c',
-      secondary: '#718096',
-      disabled: '#cbd5e0',
+      primary: `#1a202c`,
+      secondary: `#718096`,
+      disabled: `#cbd5e0`,
     },
     background: {
-      primary: '#ffffff',
-      secondary: '#f7fafc',
+      primary: `#ffffff`,
+      secondary: `#f7fafc`,
     },
   },
   font: {
     family: {
-      heading: ''Poppins', sans-serif',
+      heading: `'Poppins', sans-serif`,
     },
     size: {
-      xs: '12px',
-      sm: '14px',
-      base: '16px',
-      lg: '18px',
-      xl: '20px',
-      '2xl': '24px',
-      '3xl': '30px',
-      '4xl': '36px',
+      xs: `12px`,
+      sm: `14px`,
+      base: `16px`,
+      lg: `18px`,
+      xl: `20px`,
+      '2xl': `24px`,
+      '3xl': `30px`,
+      '4xl': `36px`,
     },
     weight: {
-      light: '300',
-      normal: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
+      light: `300`,
+      normal: `400`,
+      medium: `500`,
+      semibold: `600`,
+      bold: `700`,
     },
   },
   padding: {
-    sm: '8px',
-    xs: '4px',
+    sm: `8px`,
+    xs: `4px`,
   },
   spacing: {
-    xs: '4px',
-    sm: '8px',
-    md: '16px',
-    lg: '24px',
-    xl: '32px',
-    xxl: '48px',
+    xs: `4px`,
+    sm: `8px`,
+    md: `16px`,
+    lg: `24px`,
+    xl: `32px`,
+    xxl: `48px`,
   },
 } as const;
-
-export default tokens;
-
-/**
- * Helper function to get token value with type safety
- * Usage: getToken(tokens.color.base.blue[60])
- */
-export function getToken<T extends string>(value: T): T {
-  return value;
-}
-
-/**
- * Type-safe token reference checker
- * Returns true if value is a reference (starts with tokens.)
- */
-export function isTokenReference(value: string): boolean {
-  return typeof value === 'string' && value.trim().length > 0;
-}

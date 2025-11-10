@@ -1,10 +1,8 @@
 import StyleDictionary from "style-dictionary";
 
-// Custom format để tạo TypeScript interfaces tự động từ cấu trúc tokens
 StyleDictionary.registerFormat({
   name: "typescript/auto-interfaces",
   format: ({ dictionary }) => {
-    // Tạo cấu trúc nested object từ tokens
     const buildNestedObject = (tokens) => {
       const result = {};
 
@@ -27,10 +25,19 @@ StyleDictionary.registerFormat({
       return result;
     };
 
+    // Helper để tạo safe key cho TypeScript interface
+    const getSafeKey = (key) => {
+      if (/^\d/.test(key) || /[^a-zA-Z0-9_$]/.test(key)) {
+        return `'${key}'`;
+      }
+      return key;
+    };
+
     // Convert key sang valid JavaScript identifier (camelCase)
     const normalizeKey = (key) => {
       if (/^\d/.test(key)) {
-        return `'${key}'`;
+        const match = key.match(/^(\d+)(.*)$/);
+        return match ? match[2] + match[1] : `'${key}'`;
       }
 
       const camelCase = key
@@ -83,10 +90,12 @@ StyleDictionary.registerFormat({
 
       for (const key of sortedKeys) {
         const value = obj[key];
+        const safeKey = getSafeKey(key); // ✅ Thêm safe key
+
         if (typeof value === "object" && !Array.isArray(value)) {
-          result += `  ${key}: ${generateInlineInterface(value, 2)};\n`;
+          result += `  ${safeKey}: ${generateInlineInterface(value, 2)};\n`;
         } else {
-          result += `  ${key}: string;\n`;
+          result += `  ${safeKey}: string;\n`;
         }
       }
 
@@ -111,10 +120,12 @@ StyleDictionary.registerFormat({
 
       for (const key of sortedKeys) {
         const value = obj[key];
+        const safeKey = getSafeKey(key); // ✅ Thêm safe key
+
         if (typeof value === "object" && !Array.isArray(value)) {
-          result += `${spaces}  ${key}: ${generateInlineInterface(value, indent + 1)};\n`;
+          result += `${spaces}  ${safeKey}: ${generateInlineInterface(value, indent + 1)};\n`;
         } else {
-          result += `${spaces}  ${key}: string;\n`;
+          result += `${spaces}  ${safeKey}: string;\n`;
         }
       }
 
@@ -198,33 +209,17 @@ StyleDictionary.registerFormat({
         if (typeof value === "object" && !Array.isArray(value)) {
           result += `${spaces}  ${objKey}: ${generateObject(value, indent + 1)},\n`;
         } else {
-          result += `${spaces}  ${objKey}: '${value}',\n`;
+          // ✅ Convert to string và escape backticks/dollar signs
+          const stringValue = String(value);
+          const escapedValue = stringValue
+            .replace(/`/g, "\\`")
+            .replace(/\$/g, "\\$");
+          result += `${spaces}  ${objKey}: \`${escapedValue}\`,\n`;
         }
       }
 
       result += `${spaces}}`;
       return result;
-    };
-
-    // Tạo helper function để access tokens với type safety
-    const generateHelperFunctions = () => {
-      return `
-/**
- * Helper function to get token value with type safety
- * Usage: getToken(tokens.color.base.blue[60])
- */
-export function getToken<T extends string>(value: T): T {
-  return value;
-}
-
-/**
- * Type-safe token reference checker
- * Returns true if value is a reference (starts with tokens.)
- */
-export function isTokenReference(value: string): boolean {
-  return typeof value === 'string' && value.trim().length > 0;
-}
-`;
     };
 
     const nestedTokens = buildNestedObject(dictionary.allTokens);
@@ -237,10 +232,7 @@ export function isTokenReference(value: string): boolean {
  * Do not edit directly
  */
 
-${interfaces}${generateMainInterface(nestedTokens, interfaceMap)}export const tokens: DesignTokens = ${generateObject(nestedTokens)} as const;
-
-export default tokens;
-${generateHelperFunctions()}`;
+${interfaces}${generateMainInterface(nestedTokens, interfaceMap)}export const tokens: DesignTokens = ${generateObject(nestedTokens)} as const;`;
   },
 });
 
